@@ -107,12 +107,12 @@ p { margin: 0 0 1em; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 32px;
+  padding: 12px 32px;
   max-width: var(--max);
   margin: 0 auto;
 }
 .brand { display: flex; align-items: center; gap: 10px; }
-.brand img { height: 34px; width: auto; }
+.brand img { height: 48px; width: auto; }
 .brand-word { display: none; }
 
 .main-nav { display: flex; align-items: center; gap: 36px; }
@@ -200,6 +200,7 @@ section { padding: 88px 0; }
 }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid > * { min-width: 0; }
 
 .card {
   background: var(--white);
@@ -237,6 +238,7 @@ section { padding: 88px 0; }
   gap: 24px;
   text-align: center;
 }
+.stats .stat { min-width: 0; }
 .stats .stat strong {
   display: block;
   font-family: var(--serif);
@@ -346,7 +348,7 @@ section { padding: 88px 0; }
   gap: 40px;
   margin-bottom: 40px;
 }
-.footer-brand img { height: 30px; margin-bottom: 14px; }
+.footer-brand img { height: 40px; margin-bottom: 14px; }
 .footer-brand p { color: rgba(255,255,255,0.5); max-width: 320px; font-size: 0.88rem; }
 .site-footer h4 {
   color: var(--white);
@@ -378,7 +380,7 @@ section { padding: 88px 0; }
   .nav-cta { display: none; }
   .header-inner.open .main-nav {
     position: fixed;
-    top: 68px;
+    top: var(--header-h, 74px);
     right: 0;
     bottom: 0;
     left: 0;
@@ -398,12 +400,12 @@ section { padding: 88px 0; }
   .header-inner.open .nav-cta { display: inline-block; }
   .header-inner.open .main-nav a { font-size: 1.1rem; }
 
-  .grid-3 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .grid-2 { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .service-block { grid-template-columns: 1fr; gap: 18px; }
   .contact-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .timeline-item { grid-template-columns: 1fr; gap: 6px; }
 }
 
@@ -412,4 +414,11 @@ section { padding: 88px 0; }
   section { padding: 64px 0; }
   .footer-grid { grid-template-columns: 1fr; }
   .container { padding: 0 22px; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 420px) {
+  .stats { grid-template-columns: 1fr; gap: 32px; }
+  .stats .stat strong { font-size: 1.8rem; }
 }
